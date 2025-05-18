@@ -8,7 +8,9 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(refreshToken());
+    if (localStorage.getItem("token")) {
+      dispatch(refreshToken());
+    }
   }, [dispatch]);
   return <Outlet />;
 }

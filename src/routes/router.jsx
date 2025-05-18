@@ -3,6 +3,7 @@ import App from "../App";
 import ProtectedRoute from "./ProtectedRoute";
 import HomeLayout from "../components/layout/HomeLayout";
 import LandingPage from "../features/landing/LandingPage";
+import LoginPage from "@/features/auth/login/LoginPage";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
           },
           {
             path: "login",
-            element: <div>Login</div>,
+            element: <LoginPage />,
           },
         ],
       },
