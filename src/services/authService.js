@@ -19,6 +19,7 @@ export const authService = {
         },
       },
     );
+    localStorage.setItem("token", data.data.token);
     return data;
   },
   logout: async () => {

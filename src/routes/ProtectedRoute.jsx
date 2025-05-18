@@ -9,10 +9,12 @@ function ProtectedRoute({ children }) {
   const { isLoading } = useSelector((state) => state.ui);
 
   if (isLoading) {
+    console.log("loading");
+    
     return <LoadingAnimation />;
   }
 
-  if (!accessToken) {
+if (!accessToken && !isLoading) {
     return <Navigate to="/auth/login" />;
   }
 

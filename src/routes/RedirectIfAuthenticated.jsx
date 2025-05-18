@@ -1,3 +1,4 @@
+import LoadingAnimation from "@/components/LoadingAnimation";
 import React from "react";
 import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router";

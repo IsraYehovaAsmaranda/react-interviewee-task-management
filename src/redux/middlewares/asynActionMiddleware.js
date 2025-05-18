@@ -4,12 +4,13 @@ const asyncActionMiddlewares =
   ({ dispatch }) =>
   (next) =>
   async (action) => {
-    const response = next(action);
-
+    
     if (action.type.endsWith("/pending")) {
       dispatch(loading());
     }
-
+    
+    const response = next(action);
+    
     if (action.type.endsWith("/fulfilled")) {
       dispatch(success());
     }

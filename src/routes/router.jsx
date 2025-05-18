@@ -4,6 +4,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import HomeLayout from "../components/layout/HomeLayout";
 import LandingPage from "../features/landing/LandingPage";
 import LoginPage from "@/features/auth/login/LoginPage";
+import RedirectIfAuthenticated from "./RedirectIfAuthenticated";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: "auth",
+        element: <RedirectIfAuthenticated />,
         children: [
           {
             index: true,

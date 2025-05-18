@@ -9,12 +9,18 @@ const uiSlice = createSlice({
   },
   reducers: {
     loading: (state) => {
+      console.log("loading");
+      
       state.isLoading = true;
     },
     success: (state) => {
+      console.log("success");
+      
       state.isLoading = false;
     },
     error: (state, action) => {
+      console.log("failed");
+      
       state.isLoading = false;
       if (
         action.payload.response &&

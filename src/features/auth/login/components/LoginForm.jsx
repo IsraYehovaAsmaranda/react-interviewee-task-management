@@ -7,8 +7,12 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { loginSchema } from "../schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useDispatch } from "react-redux";
+import { loginAction } from "../../authSlice";
 
 function LoginForm() {
+  const dispatch = useDispatch();
+
   const {
     control,
     handleSubmit,
@@ -18,9 +22,18 @@ function LoginForm() {
     resolver: zodResolver(loginSchema),
   });
 
-  console.log(errors);
+  const handleLogin = handleSubmit((data) => {
+    const payload = {
+      ...data,
+      onSuccess: (result) => {
+        localStorage.setItem("token", result.token);
+      },
+    };
+    dispatch(loginAction(payload));
+  });
+
   return (
-    <form onSubmit={handleSubmit((data) => console.log(data))}>
+    <form onSubmit={handleLogin}>
       <div className="mt-6">
         <InputField
           control={control}

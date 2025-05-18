@@ -8,10 +8,10 @@ import router from "./routes/router.jsx";
 import store from "./redux/store.js";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  // <StrictMode>
     <Provider store={store}>
       <Toaster position="top-right" />
       <RouterProvider router={router} />
     </Provider>
-  </StrictMode>,
+  // </StrictMode>,
 );
